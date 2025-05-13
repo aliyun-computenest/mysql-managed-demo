@@ -166,8 +166,8 @@ Service:
 Artifact:
   Artifact_1:
     ArtifactType: File
-    ArtifactName: MySQL
-    Description: MySQL
+    ArtifactName: MySQLFile
+    Description: MySQLFile
     ArtifactProperty:
       RegionId: cn-hangzhou
       Url: 'resources/artifact_resources/file/mysql-community-release-el6-5.noarch.rpm'
