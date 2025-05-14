@@ -134,6 +134,7 @@ Service:
                 port=3306
                 socket=/data1/mysql/mysql.sock
               Formatter: cnf
+              Name: Default
               FormatterConfig:
                 SectionName: mysqld
     ModifyParametersConfig:
