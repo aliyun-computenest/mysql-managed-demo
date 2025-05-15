@@ -62,10 +62,9 @@ Parameters:
       zh-cn: Ecs实例类型
     AssociationProperty: ALIYUN::ECS::Instance::InstanceType
     AllowedValues:
-      - ecs.c6.large
-      - ecs.c6.xlarge
-      - ecs.c6.2xlarge
-      - ecs.c6.4xlarge
+      - ecs.u1-c1m2.large
+      - ecs.u1-c1m2.xlarge
+      - ecs.u1-c1m2.2xlarge
   SlbInstanceType:
     Type: String
     Label:

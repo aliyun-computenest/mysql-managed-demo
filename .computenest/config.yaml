@@ -13,18 +13,18 @@ Service:
           Url: 'ros_templates/template.yaml'
           PredefinedParameters:
             - Name: 低配版
-              Description: 该套餐采用了2vCPU 4GB内存的ECS实例（ecs.c6.large），并且绑定了SLB（slb.s1.small），满足基本的业务需求。
+              Description: 该套餐采用了2vCPU 4GB内存的ECS实例
               Parameters:
-                EcsInstanceType: ['ecs.c6.large']
+                EcsInstanceType: ['ecs.u1-c1m2.large']
                 SlbInstanceType: slb.s1.small
               Type: Normal
               OrderList:
                 - EcsInstanceType
                 - SlbInstanceType
             - Name: 基础版
-              Description: 该套餐采用了4vCPU 8GB内存的ECS实例（ecs.c6.xlarge），并且绑定了SLB（slb.s1.small），该配置可以满足大部分的业务需求。
+              Description: 该套餐采用了4vCPU 8GB内存的ECS实例
               Parameters:
-                EcsInstanceType: ['ecs.c6.xlarge']
+                EcsInstanceType: ['ecs.u1-c1m2.xlarge']
                 SlbInstanceType: slb.s1.small
               Type: Normal
               OrderList:
@@ -33,7 +33,7 @@ Service:
             - Name: 高配版
               Description: 该套餐采用了8vCPU 16GB内存的ECS实例（ecs.c6.2xlarge），并且绑定了SLB（slb.s3.small），该配置使用了更高规格ECS和SLB，进一步提升了架构的稳定性和性能。
               Parameters:
-                EcsInstanceType: ['ecs.c6.2xlarge']
+                EcsInstanceType: ['ecs.u1-c1m2.2xlarge']
                 SlbInstanceType: slb.s3.small
               Type: Normal
               OrderList:
