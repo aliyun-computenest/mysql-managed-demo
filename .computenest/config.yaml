@@ -109,7 +109,11 @@ Service:
             Type: Number
             Default: 16
             Description: mysql线程缓存
-            AllowdValues: 8,16,32,64
+            AllowdValues: 
+              - 8
+              - 16
+              - 32
+              - 64
         Metadata:
           ParameterGroups:
             - Parameters:
