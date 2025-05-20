@@ -296,7 +296,6 @@ Resources:
     Type: ALIYUN::ECS::RunCommand
     DependsOn:
       - EcsInstanceGroup
-      - WaitCondition
       - RunCommand
     Properties:
       Sync: true
