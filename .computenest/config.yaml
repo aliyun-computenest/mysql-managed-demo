@@ -96,8 +96,8 @@ Service:
             Description: mysql最大连接数
             Default: 512
             ConstraintDescription: 256~1024
-            MaxValue: 256
-            MinValue: 1024
+            MaxValue: 1024
+            MinValue: 256
           max_user_connections:
             Type: Number
             Default: 48
