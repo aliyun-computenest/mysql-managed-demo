@@ -91,22 +91,25 @@ Service:
             Type: String
             Description: mysql服务器允许最大接收数的据包大小
             Default: '16M'
-            ConstraintDescription: 8M~32M
           max_connections:
             Type: Number
             Description: mysql最大连接数
-            Default: '512'
+            Default: 512
             ConstraintDescription: 256~1024
+            MaxValue: 256
+            MinValue: 1024
           max_user_connections:
             Type: Number
-            Default: '48'
+            Default: 48
             Description: mysql用户最大的连接数
             ConstraintDescription: 32~64
+            MaxValue: 64
+            MinValue: 32
           thread_cache_size:
             Type: Number
-            Default: '16'
+            Default: 16
             Description: mysql线程缓存
-            ConstraintDescription: 8,16,32,64
+            AllowdValues: 8,16,32,64
         Metadata:
           ParameterGroups:
             - Parameters:
