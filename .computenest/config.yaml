@@ -94,18 +94,18 @@ Service:
             ConstraintDescription: 8M~32M
           max_connections:
             Type: Number
-            Description: 最大连接数
+            Description: mysql最大连接数
             Default: '512'
             ConstraintDescription: 256~1024
           max_user_connections:
             Type: Number
             Default: '48'
-            Description: 用户最大的连接数
+            Description: mysql用户最大的连接数
             ConstraintDescription: 32~64
           thread_cache_size:
             Type: Number
             Default: '16'
-            Description: 线程缓存
+            Description: mysql线程缓存
             ConstraintDescription: 8,16,32,64
         Metadata:
           ParameterGroups:

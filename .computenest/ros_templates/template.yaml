@@ -85,25 +85,7 @@ Parameters:
     Default: ''
 # 定义资源
 Resources:
-  # 定义WaitCondition和WaitConditionHandle来等待命令在Ecs中执行完毕部署成功
-  WaitCondition:
-    Type: ALIYUN::ROS::WaitCondition
-    Properties:
-      Count: 1
-      Handle:
-        Ref: WaitConditionHandle
-      Timeout: 1800
-  WaitConditionHandle:
-    Type: ALIYUN::ROS::WaitConditionHandle
-  RunCommandWaitCondition:
-    Type: ALIYUN::ROS::WaitCondition
-    Properties:
-      Count: 1
-      Handle:
-        Ref: RunCommandWaitConditionHandle
-      Timeout: 1800
-  RunCommandWaitConditionHandle:
-    Type: ALIYUN::ROS::WaitConditionHandle
+  # 安全组
   EcsSecurityGroup:
     Type: 'ALIYUN::ECS::SecurityGroup'
     Properties:
@@ -281,9 +263,6 @@ Resources:
               touch "$FLAG_FILE"
               echo "Initialization complete. Flag file created."
             
-              # 执行成功回调WaitCondition结束WaitCondition的等待
-              ${CurlCli} -d "{\"Data\" : \"SUCCESS\", \"Status\" : \"SUCCESS\"}"
-            
             else
               # 扩容数据盘时执行
             
@@ -304,13 +283,8 @@ Resources:
               # 启动MySQL服务
               systemctl start mysqld
             fi
-        # 获取到WaitConditionHandle的地址放到 ${CurlCli}变量里
-          - CurlCli:
-              Fn::GetAtt:
-                - WaitConditionHandle
-                - CurlCli
-            # 数据库root账户密码
-            Password:
+          # 数据库root账户密码
+          - Password:
               Ref: Password
       Type: RunShellScript
       Timeout: 900
@@ -327,17 +301,11 @@ Resources:
     Properties:
       Sync: true
       CommandContent:
-        Fn::Sub:
-          - |
-            cat > /etc/my.cnf << "EOF"
-            ${ConfigParam}
-            EOF
-            systemctl restart mysqld
-            ${CurlCli} -d "{\"Data\" : \"SUCCESS\", \"Status\" : \"SUCCESS\"}"
-          - CurlCli:
-              Fn::GetAtt:
-                - RunCommandWaitConditionHandle
-                - CurlCli
+        |
+        cat > /etc/my.cnf << "EOF"
+        ${ConfigParam}
+        EOF
+        systemctl restart mysqld
       Type: RunShellScript
       InstanceIds:
         Fn::GetAtt:
