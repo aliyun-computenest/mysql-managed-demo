@@ -301,7 +301,7 @@ Resources:
       Sync: true
       CommandContent:
         |
-        cat > /etc/my.cnf << "EOF"
+        cat > /etc/my.cnf << EOF
         ${ConfigParam}
         EOF
         systemctl restart mysqld
