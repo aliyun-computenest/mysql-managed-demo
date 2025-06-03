@@ -63,8 +63,7 @@ Service:
                             VSwitchId: ${VSwitchId}
       FileArtifactRelation:
         '{{ computenest::file::MySQL }}':
-          ArtifactId: ${Artifact.Artifact_1.ArtifactId}
-          ArtifactVersion: ${Artifact.Artifact_1.ArtifactVersion}
+          ArtifactId: artifact-294b0a26e269458eb6b9
     TemplateConfigs:
       - Name: 单机版
         ArchitectureDiagramUrl: 'docs/architecture.png'
@@ -171,11 +170,3 @@ Service:
     Name: MySQL托管版beta1
   ShareType: Public
   ApprovalType: Manual
-Artifact:
-  Artifact_1:
-    ArtifactType: File
-    ArtifactName: MySQLFile
-    Description: MySQLFile
-    ArtifactProperty:
-      RegionId: cn-hangzhou
-      Url: 'resources/artifact_resources/file/mysql-community-release-el6-5.noarch.rpm'
