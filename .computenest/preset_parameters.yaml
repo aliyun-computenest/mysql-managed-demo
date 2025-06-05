@@ -13,11 +13,15 @@ Parameters:
   ZoneId:
     Type: String
     AssociationProperty: ALIYUN::ECS::Instance:ZoneId
+    AssociationPropertyMetadata:
+      RegionId: cn-hangzhou
     Label:
       en: VSwitch Available Zone
       zh-cn: 可用区
   VpcId:
     AssociationProperty: ALIYUN::ECS::VPC::VPCId
+    AssociationPropertyMetadata:
+      RegionId: cn-hangzhou
     Type: String
     Label:
       en: VPC ID
@@ -26,6 +30,7 @@ Parameters:
   VSwitchId:
     AssociationProperty: ALIYUN::ECS::VSwitch::VSwitchId
     AssociationPropertyMetadata:
+      RegionId: cn-hangzhou
       VpcId: ${VpcId}
       ZoneId: ${ZoneId}
     Type: String
